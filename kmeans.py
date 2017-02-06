@@ -58,4 +58,4 @@ for i in range(imax):
 # Calculate accuracy
 # using the utils.py
 acc = accuracy(c, y, k)
-print('Accuracy: ', acc)
+print(acc)
