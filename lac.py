@@ -7,8 +7,8 @@ import numpy as np
 from utils import *
 
 # Read and store the input data
-FILE = 'iris.data.txt'
-#FILE = 'glass.data.txt'
+#FILE = 'iris.data.txt'
+FILE = 'glass.data.txt'
 
 # Read input file
 # using the utils.py
@@ -78,7 +78,9 @@ for i in range(imax):
    if(stop <= 0) or (i >= imax):
       break
 
-# Calculate accuracy
+# Calculate accuracy and
+# Silhouette Coefficient
 # using the utils.py
 acc = accuracy(c, y, k)
-print(acc)
+sil = silhouette(x, c, me)
+print(acc, sil)
