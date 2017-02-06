@@ -46,7 +46,20 @@ for i in range(imax):
          break
       a = np.copy(a_t)
    
-# Calculate accuracy
+# Calculate accuracy and
+# Silhouette Coefficient
 # using the utils.py
 acc = accuracy(c, y, k)
-print(acc)
+
+me = np.zeros((k,d))
+for j in range(k):
+   a = np.arange(n)
+   idx = a[c == j]
+   l = len(idx)
+   if l:
+      me[j,:] = np.sum(x[idx,:], axis=0)/len(x[idx,:])
+   else:
+      me[j,:] = me[j,:] + (np.random.rand(d))
+
+sil = silhouette(x, c, me)
+print(acc, sil)
