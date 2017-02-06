@@ -55,7 +55,9 @@ for i in range(imax):
    st = np.sum(np.sum(np.power(me - me_t,2), axis=0))
    if(stop <= 0) or (i >= imax):
       break
+
 # Calculate accuracy
 # using the utils.py
 acc = accuracy(c, y, k)
-print(acc)
+sil = silhouette(x, c, me)
+print(acc, sil)
