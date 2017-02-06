@@ -5,8 +5,8 @@
 
 import numpy as np
 from utils import *
-FILE = 'iris.data.txt'
-#FILE = 'glass.data.txt'
+#FILE = 'iris.data.txt'
+FILE = 'glass.data.txt'
 
 # Read input file
 # using the utils.py
