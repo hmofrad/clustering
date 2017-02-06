@@ -56,7 +56,8 @@ for i in range(imax):
    if(stop <= 0) or (i >= imax):
       break
 
-# Calculate accuracy
+# Calculate accuracy and
+# Silhouette Coefficient
 # using the utils.py
 acc = accuracy(c, y, k)
 sil = silhouette(x, c, me)
