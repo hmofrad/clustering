@@ -6,8 +6,8 @@
 import subprocess
 import numpy as np
 import re
-#algorithm = 'lac'
-algorithm = 'kmeans'
+algorithm = 'lac'
+#algorithm = 'kmeans'
 #algorithm = 'kmedoids'
 
 command = 'python3.4 %s.py' %algorithm
