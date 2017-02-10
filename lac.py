@@ -7,8 +7,8 @@ import numpy as np
 from utils import *
 
 # Read and store the input data
-#FILE = 'iris.data.txt'
-FILE = 'glass.data.txt'
+FILE = 'iris.data.txt'
+#FILE = 'glass.data.txt'
 
 # Read input file
 # using the utils.py
@@ -21,6 +21,7 @@ k = len(np.unique(y))
 numactions = k
 alpha = 0.9
 beta = 0.01
+
 action = np.zeros((k, n)) # LA action set
 probability = np.tile(1/numactions, (numactions, n)) # LA prob. set
 
@@ -62,7 +63,8 @@ for i in range(imax):
       idx = a[c == j] # Current cluster
       l = len(idx)    # #cluster elements
       if l:
-         me[j,:] = np.sum(x[idx,:], axis=0)/len(x[idx,:])
+         #me[j,:] = np.sum(x[idx,:], axis=0)/len(x[idx,:])
+         me[j,:] = np.mean(x[idx,:], axis=0)
       else:
          me[j,:] = me[j,:] + (np.random.rand(d) * di)
    
