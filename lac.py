@@ -30,8 +30,8 @@ ma = np.max(x, axis=0) # Maximum
 di = ma - mi           # Difference
 stop = 0               # Stopping criterion
 
-c = np.zeros(n)        # LA     cluster membership
-cc = np.zeros(n)       # kmeans cluster membership
+c = np.zeros(n)        # LA cluster membership
+cc = np.zeros(n)       # RS cluster membership
 me = np.random.rand(k, d) * np.ones((k, d)) # Clusters mean
 me = me * di
 me = me + mi
