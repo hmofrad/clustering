@@ -65,8 +65,8 @@ for i in range(imax):
       if l:
          #me[j,:] = np.sum(x[idx,:], axis=0)/len(x[idx,:])
          me[j,:] = np.mean(x[idx,:], axis=0)
-      else:
-         me[j,:] = me[j,:] + (np.random.rand(d) * di)
+#      else:
+#         me[j,:] = me[j,:] + (np.random.rand(d) * di)
    
    # Compute reinforcement signal   
    for j in range(n):
