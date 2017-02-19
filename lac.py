@@ -19,8 +19,10 @@ FILE = 'iris.data.txt'
 k = len(np.unique(y))
 
 numactions = k
-alpha = 0.9
-beta = 0.01
+alpha = 0.45
+beta = 0.09
+#alpha = 0.9
+#beta = 0.01
 
 action = np.zeros((k, n)) # LA action set
 probability = np.tile(1/numactions, (numactions, n)) # LA prob. set
