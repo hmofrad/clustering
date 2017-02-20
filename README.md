@@ -12,3 +12,6 @@
   <li><a href="http://archive.ics.uci.edu/ml/datasets/Iris">Iris dataset</a></li>
   <li><a href="https://archive.ics.uci.edu/ml/datasets/Glass+Identification">Glass Identification dataset</a></li>
 </ul>
+
+## Requirements: Install numpy on python 3.4
+sudo pip3.4 install numpy
