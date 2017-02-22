@@ -7,6 +7,7 @@ import numpy as np
 from utils import *
 
 # Read and store the input data
+# using the utils.py
 PERFIX = 'dataset/'
 #FILE = PERFIX + 'balance-scale.data.txt'
 #FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
@@ -19,8 +20,6 @@ FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'pima-indians-diabetes.data.txt'
 #FILE = PERFIX + 'wine.data.txt'
 
-# Read input file
-# using the utils.py
 [x, y] = read(FILE)
 
 # Initliaze parameters
