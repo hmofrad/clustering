@@ -7,7 +7,7 @@ import numpy as np
 import os
 
 # Debug level
-VERBOS = False
+VERBOSE = False
 
 # Read input text file and
 # create x matrix as the input data and
@@ -20,7 +20,7 @@ def read(FILE):
       data = []
       for line in lines:
          data.append(line.rstrip().split(","))
-         if VERBOS:
+         if VERBOSE:
             print(data[-1])
    else:
       print(FILE, 'does not exist')
@@ -41,7 +41,7 @@ def read(FILE):
 
 # Calculate the accuracy of the clusting
 def accuracy(c, y, k):
-   if VERBOS:
+   if VERBOSE:
       print(c)
       print(y)
 
@@ -66,6 +66,29 @@ def accuracy(c, y, k):
       kk = np.zeros(k)
    e = e/k
    return(e)
+
+# Silhouette Coefficient
+def silhouette(x, c, me):
+   if VERBOSE:
+      print(c)
+      print(y)
+   
+   n = len(c)
+   s = np.zeros((n,3))
+   for i in range(n):
+      dist = np.sqrt(np.sum(np.power(x[i,:] - me,2), axis=1))
+      dd = np.argsort(dist)
+      aa = np.arange(n)
+      for j in range(2):
+         aa = np.arange(n)
+         idx = aa[c == dd[j]]
+         l = len(idx)
+         if l:
+            for o in idx:
+               s[o,j] = s[o,j] + np.sqrt(np.sum(np.power(x[i,:] - x[o,:] ,2)))
+            s[o,j] = s[o,j]/l
+   s = np.mean((s[:,0] - s[:,1])/np.amax(s[:,0:2], axis=1))
+   return(s)
 
 # Learning Automata action selection
 def actionselection(action, probability, numactions, numdims):
