@@ -22,5 +22,7 @@ Connectionist Bench (Sonar, Mines vs. Rocks) dataset</a></li>
   <li><a href="https://archive.ics.uci.edu/ml/datasets/Wine">Wine dataset</a></li>
 </ul>
 
-## Requirements: Install numpy on python 3.4
-sudo pip3.4 install numpy
+## Requirements
+ * Linux OS
+ * Pyton3.4
+ * NumPy: sudo pip3.4 install numpy
