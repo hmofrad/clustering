@@ -1,13 +1,13 @@
 # clustering 
 <p>Clustering algorithms implementation</p>
 <ul>
-  <li><b>lac.py</b>: Learning Automata clustering (LAC) algorithm.</li>
+  <li><b>lac.py</b>: Learning Automata Clustering (LAC) algorithm.</li>
   <li><b>kmeans.py</b>: K-means clustering algorithm</li>
   <li><b>kmedians.py</b>: K-medians clustering algorithm</li>
   <li><b>kmedoids.py</b>: K-medoids clustering algorithm</li>
 </ul>
 
-<p>Test cases which from UCI machine learning repository:</p>
+<p>Test cases which are from UCI machine learning repository:</p>
 <ul>
   <li><a href="https://archive.ics.uci.edu/ml/datasets/Balance+Scale">Balance Scale dataset</a></li>
   <li><a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)">Breast Cancer Wisconsin (Diagnostic) dataset</a></li>
