@@ -1,11 +1,9 @@
 # clustering 
-<p>Clustering algorithms implementation</p>
-<ul>
-  <li><b>lac.py</b>: Learning Automata Clustering (LAC) algorithm.</li>
-  <li><b>kmeans.py</b>: K-means clustering algorithm</li>
-  <li><b>kmedians.py</b>: K-medians clustering algorithm</li>
-  <li><b>kmedoids.py</b>: K-medoids clustering algorithm</li>
-</ul>
+Clustering algorithms implementation
+* **lac.py**: Learning Automata Clustering (LAC) algorithm.
+* **kmeans.py**: K-means clustering algorithm
+* **kmedians.py**: K-medians clustering algorithm
+* **kmedoids.py**: K-medoids clustering algorithm
 
 <p>Test cases which are from UCI machine learning repository:</p>
 <ul>
