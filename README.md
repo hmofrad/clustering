@@ -15,8 +15,8 @@ Test cases which are from UCI machine learning repository:
 * [Glass Identification dataset](https://archive.ics.uci.edu/ml/datasets/Glass+Identification)
 * [Hayes-Roth dataset](https://archive.ics.uci.edu/ml/datasets/Hayes-Roth)
 * [Ionosphere dataset](https://archive.ics.uci.edu/ml/datasets/Ionosphere)
-* [Iris dataset] (http://archive.ics.uci.edu/ml/datasets/Iris)
-* [Pima Indians Diabetes dataset](https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes
+* [Iris dataset](http://archive.ics.uci.edu/ml/datasets/Iris)
+* [Pima Indians Diabetes dataset](https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes)
 * [Wine dataset](https://archive.ics.uci.edu/ml/datasets/Wine)
 
 ## Requirements
