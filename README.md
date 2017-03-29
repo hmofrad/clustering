@@ -21,5 +21,5 @@ Test cases which are from UCI machine learning repository:
 
 ## Requirements
  * Linux OS
- * Pyton3.4
+ * Python 3.4
  * NumPy: sudo pip3.4 install numpy
