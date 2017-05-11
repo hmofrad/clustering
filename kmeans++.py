@@ -7,11 +7,12 @@ import numpy as np
 from utils import *
 import scipy
 
+np.random.seed()
 # Read and store the input data
 # using the utils.py
 PERFIX = 'dataset/'
 #FILE = PERFIX + 'balance-scale.data.txt'
-FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
+#FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 #FILE = PERFIX + 'sonar.all-data.txt'
 #FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
@@ -35,7 +36,7 @@ stop = 0               # Stopping criterion
 
 c = np.zeros(n)        # Cluster membership 
 
-c1 = round(np.random.uniform(0,n))
+c1 = round(np.random.uniform(0,n-1))
 D2 = np.zeros(n)
 C = [c1] #initial mean
 
@@ -50,9 +51,7 @@ for kk in range(1,k):
     else:
         idx =idx[-1]
     C.append(idx)
-
 me = x[C,:] # Clusters center
-me_t = np.copy(me) # Copy of clusters center
 
 imax = 100
 for i in range(imax):
