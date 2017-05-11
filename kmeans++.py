@@ -27,11 +27,6 @@ FILE = PERFIX + 'wine.data.txt'
 [n, d] = np.shape(x)   # [#samples, #dimensions]
 k = len(np.unique(y))  #  #clusters
 
-mi = np.min(x, axis=0) # Minimum
-ma = np.max(x, axis=0) # Maximum
-di = ma - mi           # Difference
-stop = 0               # Stopping criterion 
-
 c = np.zeros(n)        # Cluster membership 
 
 c1 = round(np.random.uniform(0,n))
@@ -77,7 +72,7 @@ for i in range(imax):
          me[j,:] = me[j,:] + (np.random.rand(d) * di)
 
    # Check against stopping criterion
-   st = np.sum(np.sum(np.power(me - me_t,2), axis=0))
+   stop = np.sum(np.sum(np.power(me - me_t,2), axis=0))
    if(stop <= 0) or (i >= imax):
       break
 
