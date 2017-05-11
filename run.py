@@ -6,10 +6,11 @@
 import subprocess
 import numpy as np
 import re
-algorithm = 'lac'
+#algorithm = 'lac'
 #algorithm = 'kmeans'
+#algorithm = 'kmedians'
 #algorithm = 'kmedoids'
-
+algorithm = 'kmeans++'
 command = 'python3.4 %s.py' %algorithm
 
 n = 10
