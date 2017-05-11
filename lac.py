@@ -13,12 +13,12 @@ PERFIX = 'dataset/'
 #FILE = PERFIX + 'balance-scale.data.txt'
 #FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 #FILE = PERFIX + 'sonar.all-data.txt'
-FILE = PERFIX + 'cmc.data.txt'
+#FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
 #FILE = PERFIX + 'ionosphere.data.txt'
 #FILE = PERFIX + 'iris.data.txt'
-#FILE = PERFIX + 'pima-indians-diabetes.data.txt'
+FILE = PERFIX + 'pima-indians-diabetes.data.txt'
 #FILE = PERFIX + 'wine.data.txt'
 
 [x, y] = read(FILE)
@@ -39,7 +39,6 @@ probability = np.tile(1/numactions, (numactions, n)) # LA prob. set
 mi = np.min(x, axis=0) # Minimum
 ma = np.max(x, axis=0) # Maximum
 di = ma - mi           # Difference
-stop = 0               # Stopping criterion
 
 c = np.zeros(n)        # LA cluster membership
 cc = np.zeros(n)       # RS cluster membership
@@ -48,7 +47,7 @@ me = me * di
 me = me + mi
 me_t = np.zeros(np.shape(me)) # Copy of clusters mean
 
-imax = 255
+imax = 100
 for i in range(imax):
    # Select an action based on prob.
    # update clusters membership 
