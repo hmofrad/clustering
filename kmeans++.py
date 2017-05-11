@@ -17,9 +17,9 @@ PERFIX = 'dataset/'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
 #FILE = PERFIX + 'ionosphere.data.txt'
-FILE = PERFIX + 'iris.data.txt'
+#FILE = PERFIX + 'iris.data.txt'
 #FILE = PERFIX + 'pima-indians-diabetes.data.txt'
-#FILE = PERFIX + 'wine.data.txt'
+FILE = PERFIX + 'wine.data.txt'
 
 [x, y] = read(FILE)
 
@@ -47,7 +47,7 @@ for kk in range(1,k):
     if not idx.size:
         idx = 0
     else:
-        idx = max(idx)
+        idx =idx[-1]
     C.append(idx)
 
 me = x[C,:] # Clusters center
