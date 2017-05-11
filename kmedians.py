@@ -61,7 +61,7 @@ for i in range(imax):
          med[j,:] = med[j,:] + (np.random.rand(d) * di)
 
    # Check against stopping criterion
-   st = np.sum(np.sum(np.power(med - med_t,2), axis=0))
+   stop = np.sum(np.sum(np.power(med - med_t,2), axis=0))
    if(stop <= 0) or (i >= imax):
       break
 
