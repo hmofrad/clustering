@@ -9,10 +9,10 @@ from utils import *
 # Read and store the input data
 # using the utils.py
 PERFIX = 'dataset/'
-FILE = PERFIX + 'balance-scale.data.txt'
+#FILE = PERFIX + 'balance-scale.data.txt'
 #FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 #FILE = PERFIX + 'sonar.all-data.txt'
-#FILE = PERFIX + 'cmc.data.txt'
+FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
 #FILE = PERFIX + 'ionosphere.data.txt'
