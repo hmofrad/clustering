@@ -11,7 +11,7 @@ import scipy
 # using the utils.py
 PERFIX = 'dataset/'
 #FILE = PERFIX + 'balance-scale.data.txt'
-#FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
+FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 #FILE = PERFIX + 'sonar.all-data.txt'
 #FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
@@ -26,6 +26,12 @@ FILE = PERFIX + 'wine.data.txt'
 # Initliaze parameters
 [n, d] = np.shape(x)   # [#samples, #dimensions]
 k = len(np.unique(y))  #  #clusters
+
+mi = np.min(x, axis=0) # Minimum
+ma = np.max(x, axis=0) # Maximum
+di = ma - mi           # Difference
+stop = 0               # Stopping criterion
+
 
 c = np.zeros(n)        # Cluster membership 
 
