@@ -5,6 +5,7 @@
 
 import numpy as np
 from utils import *
+np.random.seed()
 
 # Read and store the input data
 # using the utils.py
@@ -47,7 +48,7 @@ me = me * di
 me = me + mi
 me_t = np.zeros(np.shape(me)) # Copy of clusters mean
 
-imax = 100
+imax = 255
 for i in range(imax):
    # Select an action based on prob.
    # update clusters membership 
@@ -73,10 +74,7 @@ for i in range(imax):
       idx = a[c == j] # Current cluster
       l = len(idx)    # #cluster elements
       if l:
-         #me[j,:] = np.sum(x[idx,:], axis=0)/len(x[idx,:])
          me[j,:] = np.mean(x[idx,:], axis=0)
-#      else:
-#         me[j,:] = me[j,:] + (np.random.rand(d) * di)
    
    # Compute reinforcement signal   
    for j in range(n):
