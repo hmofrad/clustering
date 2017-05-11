@@ -5,6 +5,7 @@
 
 import numpy as np
 from utils import *
+np.random.seed()
 
 # Read and store the input data
 # using the utils.py
