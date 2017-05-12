@@ -1,7 +1,7 @@
 #!/usr/bin/python3.4
 # Experiments 
 # (c) Mohammad H. Mofrad
-# (e) hasanzadeh@cs.pitt.edu
+# (e) mohammad.hmofrad@pitt.edu
 
 import subprocess
 import numpy as np
