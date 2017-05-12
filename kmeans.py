@@ -1,5 +1,5 @@
 #!/usr/bin/python3.4
-# kmeans implementation
+# K-means implementation
 # (c) Mohammad H. Mofrad, 2017 
 # (e) mohammad.hmofrad@pitt.edu
 
