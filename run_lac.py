@@ -1,5 +1,5 @@
 #!/usr/bin/python3.4
-# Learning Automata Clusteing (LAC) implementation
+# Learning Automata Clusteing (LAC) parameter selection
 # (c) Mohammad H. Mofrad, 2016
 # (e) hasanzadeh@cs.pitt.edu
 
@@ -7,9 +7,10 @@ import numpy as np
 from utils import *
 
 # Read and store the input data
-FILE = 'iris.data.txt'
+PERFIX = 'dataset/'
+#FILE = 'iris.data.txt'
 #FILE = 'glass.data.txt'
-
+FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 # Read input file
 # using the utils.py
 [x, y] = read(FILE)
