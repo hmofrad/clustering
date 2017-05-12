@@ -1,7 +1,7 @@
 #!/usr/bin/python3.4
-# Kmedoids implementation
+# K-medoids implementation
 # (c) Mohammad H. Mofrad, 2017 
-# (e) hasanzadeh@cs.pitt.edu
+# (e) mohammad.hmofrad@pitt.edu
 
 import numpy as np
 from utils import *
