@@ -1,11 +1,12 @@
 #!/usr/bin/python3.4
 # kmeans implementation
 # (c) Mohammad H. Mofrad, 2017 
-# (e) hasanzadeh@cs.pitt.edu
+# (e) mohammad.hmofrad@pitt.edu
 
 import numpy as np
 from utils import *
 
+np.random.seed()
 # Read and store the input data
 # using the utils.py
 PERFIX = 'dataset/'
