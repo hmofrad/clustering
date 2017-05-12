@@ -1,7 +1,7 @@
 #!/usr/bin/python3.4
-# kmeans implementation
+# kmeans++ implementation
 # (c) Mohammad H. Mofrad, 2017 
-# (e) hasanzadeh@cs.pitt.edu
+# (e) mohammad.hmofrad@pitt.edu
 
 import numpy as np
 from utils import *
@@ -18,9 +18,9 @@ PERFIX = 'dataset/'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
 #FILE = PERFIX + 'ionosphere.data.txt'
-#FILE = PERFIX + 'iris.data.txt'
+FILE = PERFIX + 'iris.data.txt'
 #FILE = PERFIX + 'pima-indians-diabetes.data.txt'
-FILE = PERFIX + 'wine.data.txt'
+#FILE = PERFIX + 'wine.data.txt'
 
 [x, y] = read(FILE)
 
