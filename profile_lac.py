@@ -1,7 +1,7 @@
 #!/usr/bin/python3.4
-# Learning Automata Clusteing (LAC) implementation
+# Learning Automata Clusteing (LAC) profiling script
 # (c) Mohammad H. Mofrad, 2016
-# (e) hasanzadeh@cs.pitt.edu
+# (e) mohammad.hmofrad@pitt.edu
 
 import numpy as np
 from utils import *
@@ -9,7 +9,6 @@ from utils import *
 # Read and store the input data
 FILE = 'iris.data.txt'
 #FILE = 'glass.data.txt'
-
 # Read input file
 # using the utils.py
 [x, y] = read(FILE)
