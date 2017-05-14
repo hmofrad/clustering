@@ -2,6 +2,7 @@
 Clustering algorithms implementation
 * **lac.py**: Learning Automata Clustering (LAC) algorithm.
 * **kmeans.py**: K-means clustering algorithm
+* **kmeans++.py**: K-means++ clustering algorithm
 * **kmedians.py**: K-medians clustering algorithm
 * **kmedoids.py**: K-medoids clustering algorithm
 
