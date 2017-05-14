@@ -1,12 +1,13 @@
 # clustering 
-Clustering algorithms implementation
+
+## Clustering algorithms implementation
 * **lac.py**: Learning Automata Clustering (LAC) algorithm.
 * **kmeans.py**: K-means clustering algorithm
 * **kmeans++.py**: K-means++ clustering algorithm
 * **kmedians.py**: K-medians clustering algorithm
 * **kmedoids.py**: K-medoids clustering algorithm
 
-Test cases which are from UCI machine learning repository:
+## Test cases which are from UCI machine learning repository:
 * Format: The last element of each row is the sample label.
 * [Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
 
