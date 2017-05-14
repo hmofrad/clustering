@@ -8,7 +8,7 @@
 * **kmedoids.py**: K-medoids clustering algorithm
 
 ## Test cases which are from UCI machine learning repository:
-* Format: The last element of each row is the sample label.
+Format: The last element of each row is the sample label.
 * [Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
 
 * [Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
