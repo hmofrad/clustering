@@ -9,8 +9,7 @@
 
 ## Test cases which are from UCI machine learning repository:
 Format: The last element of each row is the sample label.
-* [Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
-
+* dataset/[Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
 * [Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
 * [Breast Cancer Wisconsin (Diagnostic) dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic))
 * [Connectionist Bench (Sonar, Mines vs. Rocks) dataset](https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+(Sonar,+Mines+vs.+Rocks))
