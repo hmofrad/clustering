@@ -10,7 +10,7 @@
 ## Test cases which are from UCI machine learning repository:
 Format: The last element of each row is the sample label.
 
-Small-scale datasets:
+**Small-scale datasets**:
    * dataset/[Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
    * dataset/[Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
    * dataset/[Breast Cancer Wisconsin (Diagnostic) dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic))
@@ -23,7 +23,7 @@ Small-scale datasets:
    * dataset/[Pima Indians Diabetes dataset](https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes)
    * dataset/[Wine dataset](https://archive.ics.uci.edu/ml/datasets/Wine)
 
-Large-scale datasets:
+**Large-scale datasets**:
    * dataset/[Gas Sensor Array Drift Dataset at Different Concentrations dataset](https://archive.ics.uci.edu/ml/datasets/Gas+Sensor+Array+Drift+Dataset+at+Different+Concentrations)
    * dataset/[Human Activity Recognition Using Smartphones dataset](https://archive.ics.uci.edu/ml/datasets/human+activity+recognition+using+smartphones)
 
