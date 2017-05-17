@@ -13,13 +13,15 @@ PERFIX = 'dataset/'
 #FILE = PERFIX + 'balance-scale.data.txt'
 #FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 #FILE = PERFIX + 'sonar.all-data.txt'
-FILE = PERFIX + 'cmc.data.txt'
+#FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
 #FILE = PERFIX + 'ionosphere.data.txt'
 #FILE = PERFIX + 'iris.data.txt'
 #FILE = PERFIX + 'pima-indians-diabetes.data.txt'
 #FILE = PERFIX + 'wine.data.txt'
+#FILE = PERFIX + 'drift.data.txt'
+FILE = PERFIX + 'har.data.txt'
 
 [x, y] = read(FILE)
 
