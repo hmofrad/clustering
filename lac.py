@@ -16,10 +16,12 @@ PERFIX = 'dataset/'
 #FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
-FILE = PERFIX + 'ionosphere.data.txt'
-#FILE = PERFIX + 'iris.data.txt'
+#FILE = PERFIX + 'ionosphere.data.txt'
+FILE = PERFIX + 'iris.data.txt'
 #FILE = PERFIX + 'pima-indians-diabetes.data.txt'
 #FILE = PERFIX + 'wine.data.txt'
+#FILE = PERFIX + 'drift.data.txt'
+#FILE = PERFIX + 'har.data.txt'
 
 [x, y] = read(FILE)
 
@@ -59,7 +61,7 @@ for i in range(imax):
 
    me_t = np.copy(me)
    # Calculate minimum Euclidean distance and
-   # update kmeands clusters membership 
+   # update kmeans clusters membership 
    for j in range(n):
       dist = np.sqrt(np.sum(np.power(x[j,:] - me,2), axis=1))
       idx = np.argmin(dist)
