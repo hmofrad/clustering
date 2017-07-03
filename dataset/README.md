@@ -18,4 +18,4 @@
    * [Human Activity Recognition Using Smartphones dataset](https://archive.ics.uci.edu/ml/datasets/human+activity+recognition+using+smartphones)
 
 ## Format
-The last element of each row is the sample label.
+Preprocessed datasets, the last element of each row is the sample label.
