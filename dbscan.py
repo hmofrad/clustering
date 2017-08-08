@@ -1,5 +1,5 @@
 #!/usr/bin/python3.4
-# K-means implementation
+# DBSCAN implementation
 # (c) Mohammad HMofrad, 2017 
 # (e) mohammad.hmofrad@pitt.edu
 
@@ -26,3 +26,10 @@ FILE = PERFIX + 'har.data.txt'
 [x, y] = read(FILE)
 print(np.shape(x))
 
+# Initliaze parameters
+[n, d] = np.shape(x)   # [#samples, #dimensions]
+#k = len(np.unique(y))  #  #clusters
+
+min_points = d
+
+print(np.random)
