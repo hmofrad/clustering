@@ -29,7 +29,8 @@ print(np.shape(x))
 # Initliaze parameters
 [n, d] = np.shape(x)   # [#samples, #dimensions]
 #k = len(np.unique(y))  #  #clusters
-
+epsilon = 1
 min_points = d
-
-print(np.random.randint(1,10, 10))
+starting_point = np.random.randint(0,n, 1)[0]
+print(epsilon)
+print(starting_point)
