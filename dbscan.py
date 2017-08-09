@@ -9,16 +9,30 @@ import numpy as np
 from utils import *
 
 
-def region_query(points, point, epsilon):
-    current_point = np.tile(point,(n,1))
+def region_query(points, point_index, epsilon):
+    current_point = np.tile(points[point_index,:],(n,1))
     distance = np.linalg.norm(current_point - points, axis=1)
     p = np.arange(n)
     neighbor_points = p[(distance <= epsilon)]
     return neighbor_points
 
-def expand_cluster(points, neighbor_points, clusters, epsilon, min_points):	
-    pass
-	
+def expand_cluster(points, point_index, neighbor_points, clusters, cid, epsilon, min_points):	
+    clusters[point_index] = cid
+    k = 0
+    while(True):
+        print(k)
+        point = neighbor_points[k]
+        if(visited[point] == 0):
+            visited[point] = 1
+            neighbor_points_ = region_query(x, point, epsilon)	
+            if(neighbor_points_.size >= min_points):
+                neighbor_points = np.append(neighbor_points, np.setdiff1d(neighbor_points_,neighbor_points))		
+        k = k + 1
+        if(k == neighbor_points.size):
+            break
+        if(clusters[point] <= 0):
+            clusters[point] = cid
+
 np.random.seed()
 # Read and store the input data
 # using the utils.py
@@ -47,7 +61,7 @@ visited = np.zeros(n)  # Visited
 
 epsilon = .4
 
-min_points = d
+min_points = d - 1
 starting_point = np.random.randint(0,n, 1)[0]
 #for j in range(n):
 #    Neighbor_Points = []
@@ -62,12 +76,12 @@ starting_point = np.random.randint(0,n, 1)[0]
 #for j in range(n):
 #visited[149] = 1
 for j in range(n):
-   # print(j, visited[j])
+    print('===>', j, visited[j])
     if(visited[j] == 1):
         pass
     else:
         visited[j] = 1
-        neighbor_points = region_query(x, x[j,:], epsilon)
+        neighbor_points = region_query(x, j, epsilon)
         #current_point = np.tile(x[j,:],(n,1))
         #distance = np.linalg.norm(current_point - x, axis=1)
         #p = np.arange(n)
@@ -76,6 +90,8 @@ for j in range(n):
             clusters[j] = -cid
         else: # Expand the cluster
             cid = cid + 1
+            expand_cluster(x, j, neighbor_points, clusters, cid, epsilon, min_points)
+'''	
             clusters[j] = cid
             #print(neighbor_points)
             k = 0
@@ -101,6 +117,7 @@ for j in range(n):
                     break
                 if(clusters[point] < 0):
                     clusters[point] = cid
+'''			
 
 #print('1', neighbor_points)
 #print('2', neighbor_points_)
@@ -133,6 +150,7 @@ for i in range(n):
     if clusters[i] < 0:
 	    clusters[i] = -clusters[i]
 print(clusters)
+print(visited)
 #print(s)
 #print(visited)
 #visited[idx[0]] = 1
