@@ -1,12 +1,12 @@
 ## Centroid based clustering algorithms implementation
-   * **lac.py**     : Learning Automata Clustering (LAC) algorithm.
-   * **kmeans.py**  : K-means   clustering algorithm
+   * **lac.py**: Learning Automata Clustering (LAC) algorithm.
+   * **kmeans.py**: K-means clustering algorithm
    * **kmeans++.py**: K-means++ clustering algorithm
    * **kmedians.py**: K-medians clustering algorithm
    * **kmedoids.py**: K-medoids clustering algorithm
 
 ## Density based clustering algorithm implementation
-   * **dbscan.py**  : DBSCAN    clustering algorithm
+   * **dbscan.py**: DBSCAN clustering algorithm
 
 ## Requirements
  * Linux OS
