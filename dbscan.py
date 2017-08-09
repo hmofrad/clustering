@@ -9,6 +9,16 @@ import numpy as np
 from utils import *
 
 
+def region_query(points, point, epsilon):
+    current_point = np.tile(point,(n,1))
+    distance = np.linalg.norm(current_point - points, axis=1)
+    p = np.arange(n)
+    neighbor_points = p[(distance <= epsilon)]
+    return neighbor_points
+
+def expand_cluster(points, neighbor_points, clusters, epsilon, min_points):	
+    pass
+	
 np.random.seed()
 # Read and store the input data
 # using the utils.py
@@ -30,8 +40,8 @@ FILE = PERFIX + 'iris.data.txt'
 
 # Initliaze parameters
 [n, d] = np.shape(x)   # [#samples, #dimensions]
-C = -np.ones(n)        # Cluster membership 
-cid = -1               # Cluster id
+clusters = -np.ones(n)        # Cluster membership 
+cid = 0               # Cluster id
 #k = len(np.unique(y))  #  #clusters
 visited = np.zeros(n)  # Visited
 
@@ -50,21 +60,23 @@ starting_point = np.random.randint(0,n, 1)[0]
 #print(Neighbor_Points)
 #print(np.tile(x[starting_point,:], (n,1)))
 #for j in range(n):
-visited[149] = 1
+#visited[149] = 1
 for j in range(n):
+   # print(j, visited[j])
     if(visited[j] == 1):
-        continue
+        pass
     else:
         visited[j] = 1
-        current_point = np.tile(x[j,:],(n,1))
-        distance = np.linalg.norm(current_point - x, axis=1)
-        p = np.arange(n)
-        neighbor_points = p[(distance <= epsilon)]
+        neighbor_points = region_query(x, x[j,:], epsilon)
+        #current_point = np.tile(x[j,:],(n,1))
+        #distance = np.linalg.norm(current_point - x, axis=1)
+        #p = np.arange(n)
+        #neighbor_points = p[(distance <= epsilon)]
         if(neighbor_points.size < min_points):
-            C[j] = -2
+            clusters[j] = -cid
         else: # Expand the cluster
             cid = cid + 1
-            C[j] = cid
+            clusters[j] = cid
             #print(neighbor_points)
             k = 0
             while(True):
@@ -73,10 +85,11 @@ for j in range(n):
                 #print(k, point, neighbor_points.size)
                 if(visited[point] == 0):
                     visited[point] = 1
-                    current_point = np.tile(x[point,:],(n,1))
-                    distance = np.linalg.norm(current_point - x, axis=1)
-                    p = np.arange(n)
-                    neighbor_points_ = p[(distance <= epsilon)]                
+                    neighbor_points_ = region_query(x, x[point,:], epsilon)
+                    #current_point = np.tile(x[point,:],(n,1))
+                    #distance = np.linalg.norm(current_point - x, axis=1)
+                    #p = np.arange(n)
+                    #neighbor_points_ = p[(distance <= epsilon)]                
                     if(neighbor_points_.size >= min_points):
                         neighbor_points = np.append(neighbor_points, np.setdiff1d(neighbor_points_,neighbor_points))
                         #neighbor_points = np.array(neighbor_points)
@@ -86,8 +99,8 @@ for j in range(n):
                 k = k + 1
                 if(k == neighbor_points.size):
                     break
-                if(C[point] < 0):
-                    C[point] = cid
+                if(clusters[point] < 0):
+                    clusters[point] = cid
 
 #print('1', neighbor_points)
 #print('2', neighbor_points_)
@@ -112,8 +125,15 @@ for j in range(n):
 #print(idx, idx.size)
 #C[idx] = cid;
 #cid = cid + 1;
-print(C)
-print(y)
+print(clusters)
+#print(y)
+#print(np.size(C == 3), d)
+#s = 0
+for i in range(n):
+    if clusters[i] < 0:
+	    clusters[i] = -clusters[i]
+print(clusters)
+#print(s)
 #print(visited)
 #visited[idx[0]] = 1
 #print('---', idx[0])
@@ -136,6 +156,6 @@ print(y)
 
 
 #if(!visited)
-print(cid)
-acc = accuracy(C, y, cid+1)
+#print(cid)
+#acc = accuracy(C, y, cid+1)
 #print(acc)
