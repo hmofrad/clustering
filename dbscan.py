@@ -39,11 +39,11 @@ PERFIX = 'dataset/'
 #FILE = PERFIX + 'balance-scale.data.txt'
 #FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 #FILE = PERFIX + 'sonar.all-data.txt'
-#FILE = PERFIX + 'cmc.data.txt'
+FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
 #FILE = PERFIX + 'ionosphere.data.txt'
-FILE = PERFIX + 'iris.data.txt'
+#FILE = PERFIX + 'iris.data.txt'
 #FILE = PERFIX + 'pima-indians-diabetes.data.txt'
 #FILE = PERFIX + 'wine.data.txt'
 #FILE = PERFIX + 'drift.data.txt'
@@ -55,12 +55,12 @@ FILE = PERFIX + 'iris.data.txt'
 [n, d] = np.shape(x)   # [#samples, #dimensions]
 clusters = -np.ones(n)        # Cluster membership 
 cid = 0               # Cluster id
-#k = len(np.unique(y))  #  #clusters
+expected_num_clusters = len(np.unique(y))  #clusters
 visited = np.zeros(n)  # Visited
 
-epsilon = .4
+epsilon = 1
 
-min_points = d - 1
+min_points = d + 1
 starting_point = np.random.randint(0,n, 1)[0]
 #sentinel = j
 
@@ -100,7 +100,10 @@ print(clusters)
 for i in range(n):
     if clusters[i] < 0:
 	    clusters[i] = -clusters[i]
+
+clusters = clusters - 1
 print(clusters)
-print(visited)
-#acc = accuracy(C, y, cid+1)
-#print(acc)
+print(y)
+estimated_num_clusters = len(np.unique(clusters))  # == cid
+acc = accuracy_(clusters, y, expected_num_clusters, estimated_num_clusters)
+print(acc)
