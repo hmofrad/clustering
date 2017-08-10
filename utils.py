@@ -39,7 +39,7 @@ def read(FILE):
 
    return(x, y)
 
-# Calculate the accuracy of the clusting
+# Calculate the accuracy of centroid-based clusting algorithms
 def accuracy(c, y, k):
    if VERBOSE:
       print(c)
@@ -67,6 +67,38 @@ def accuracy(c, y, k):
    e = e/k
    return(e)
 
+# Calculate the accuracy of density-based clusting algorithms
+# @param  c: Cluster asignment 
+# @param  y: Data labels
+# @param k1: True number of clusters
+# @param k2: Estimated number of clusters
+def accuracy_(c, y, k1, k2):
+   if VERBOSE:
+      print(c)
+      print(y)
+
+   n = len(y)
+   kk = np.zeros(k2)
+   o = 0
+   e = 0
+   idxx = []
+   for i in range(k1):
+      a = np.arange(n)
+      idxa = a[y == i]
+      for j in range(len(idxa)):
+         kk[int(c[j+o])] = kk[int(c[j+o])] + 1
+      if idxx:
+          for l in idxx:
+             kk[l] = 0
+      o = o + len(idxa)
+      idx = np.argmax(kk)
+      idxx.append(idx)	  
+      val = kk[idx]	  
+      e = e + (val/len(y[y == i]))
+      kk = np.zeros(k2)
+   e = e/k1
+   return(e)   
+   
 # Silhouette Coefficient
 def silhouette(x, c, me):
    if VERBOSE:
