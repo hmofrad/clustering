@@ -127,6 +127,7 @@ def actionselection(action, probability, numactions, numdims):
    for i in range(numdims):
       a = np.random.choice(np.arange(0, numactions), p = probability[:,i])
       mask = np.zeros(numactions,dtype=bool)
+      #print(i, a, mask)
       mask[a] = True
       action[mask,i] = 1
       action[~mask,i] = 0
@@ -134,16 +135,17 @@ def actionselection(action, probability, numactions, numdims):
 
 # Learning Automata probability update
 def probabilityupdate(action, probability, numactions, numdims, signal, alpha, beta):
-   for i in range(numdims):
-      a = np.where(action[:,i] == 1)
-      mask = np.zeros(numactions,dtype=bool)
-      mask[a] = True
-      #if not signal: # for single value reinforcement signals
-      if not signal[i]:
-         probability[mask,i] = probability[mask,i] + alpha * (1 - probability[mask,i])
-         probability[~mask,i] = (1 - alpha) * probability[~mask,i]
-      else:
-         probability[mask,i] = (1 - beta) * probability[mask,i]
-         probability[~mask,i] = (beta/(numactions-1)) + (1-beta) * probability[~mask,i]
+   if(numactions > 1):
+      for i in range(numdims):
+         a = np.where(action[:,i] == 1)
+         mask = np.zeros(numactions,dtype=bool)
+         mask[a] = True
+         #if not signal: # for single value reinforcement signals
+         if not signal[i]:
+            probability[mask,i] = probability[mask,i] + alpha * (1 - probability[mask,i])
+            probability[~mask,i] = (1 - alpha) * probability[~mask,i]
+         else:
+            probability[mask,i] = (1 - beta) * probability[mask,i]
+            probability[~mask,i] = (beta/(numactions-1)) + (1-beta) * probability[~mask,i]		 
    return(probability)
 
