@@ -10,6 +10,7 @@ from utils import *
 
 
 def region_query(points, point_index, epsilon):
+    [n, d] = np.shape(points)
     current_point = np.tile(points[point_index,:],(n,1))
     distance = np.linalg.norm(current_point - points, axis=1)
     p = np.arange(n)
@@ -17,6 +18,7 @@ def region_query(points, point_index, epsilon):
     return neighbor_points
 
 def expand_cluster(points, point_index, neighbor_points, clusters, cid, epsilon, min_points):	
+    [n, d] = np.shape(points)
     clusters[point_index] = cid
     k = 0
     while(True):
@@ -32,6 +34,36 @@ def expand_cluster(points, point_index, neighbor_points, clusters, cid, epsilon,
         if(clusters[point] <= 0):
             clusters[point] = cid
 
+def k_distance(points, k, std_away):
+    [n, d] = np.shape(points)
+    k_dist = np.zeros(n)
+    for j in range(n):
+        current_point = np.tile(points[j,:],(n,1))
+        dist = np.linalg.norm(current_point - points, axis=1)
+        dist = np.sort(dist)
+        k_dist[j] = dist[k]	
+    k_dist = np.sort(k_dist)		
+
+    mean = np.mean(k_dist)
+    std = np.std(k_dist)
+    print(mean, '+/-', std)
+
+    anchor = mean + (std * std_away)
+    print('anchor:', anchor)
+    last = None
+    for kd in reversed(k_dist):
+        if kd > anchor:
+            last = kd
+        if kd < anchor and last is not None:
+            print('k-dist:', last)
+            return last
+    if(last == None):
+        raise Exception('std is too far away from mean')	
+	
+	
+	
+#    return(k_distance)		
+		
 np.random.seed()
 # Read and store the input data
 # using the utils.py
@@ -39,11 +71,11 @@ PERFIX = 'dataset/'
 #FILE = PERFIX + 'balance-scale.data.txt'
 #FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
 #FILE = PERFIX + 'sonar.all-data.txt'
-FILE = PERFIX + 'cmc.data.txt'
+#FILE = PERFIX + 'cmc.data.txt'
 #FILE = PERFIX + 'glass.data.txt'
 #FILE = PERFIX + 'hayes-roth.data.txt'
 #FILE = PERFIX + 'ionosphere.data.txt'
-#FILE = PERFIX + 'iris.data.txt'
+FILE = PERFIX + 'iris.data.txt'
 #FILE = PERFIX + 'pima-indians-diabetes.data.txt'
 #FILE = PERFIX + 'wine.data.txt'
 #FILE = PERFIX + 'drift.data.txt'
@@ -58,9 +90,19 @@ cid = 0               # Cluster id
 expected_num_clusters = len(np.unique(y))  #clusters
 visited = np.zeros(n)  # Visited
 
-epsilon = 1
+min_points = d
+k = min_points
+for std_away in range(5):
+    try:
+        k_dist = k_distance(x, k, std_away)
+        break
+    except:
+        print('k-dist anchor is out of range, skipping')
+		k_dist = 1
+        continue
+epsilon = k_dist
 
-min_points = d + 1
+
 starting_point = np.random.randint(0,n, 1)[0]
 #sentinel = j
 
@@ -107,3 +149,36 @@ print(y)
 estimated_num_clusters = len(np.unique(clusters))  # == cid
 acc = accuracy_(clusters, y, expected_num_clusters, estimated_num_clusters)
 print(acc)
+
+#k = 3
+#dist = np.zeros(n)
+#for j in range(n):
+#    current_point = np.tile(x[j,:],(n,1))
+#    distance = np.linalg.norm(current_point - x, axis=1)
+#    distance = np.sort(distance)
+#    dist[j] = distance[k]
+
+
+#for j in range(n):
+#    print(kdist[j])
+#mean = np.mean(kdist)
+#std = np.std(kdist)
+#print(mean, '+/-', std)	
+
+'''
+anchor = mean + (std * std_away)
+print('anchor: ', anchor)
+last = None
+for kd in reversed(kdist):
+    #print(kd)
+    if kd > anchor:
+        last = kd
+        print(last)
+    if kd < anchor and last is not None:
+        print('kdist:', last)
+        break
+        #return last
+if(last == None):
+    raise Exception('sd too far away from mean')
+#print('kdist:', last)		
+'''  
