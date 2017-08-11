@@ -1,6 +1,6 @@
 #!/usr/bin/python3.4
 # Learning Automata Clusteing (LAC) implementation
-# (c) Mohammad H. Mofrad, 2016
+# (c) Mohammad HMofrad, 2016
 # (e) mohammad.hmofrad@pitt.edu
 
 import numpy as np
