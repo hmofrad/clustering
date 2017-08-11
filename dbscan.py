@@ -3,11 +3,8 @@
 # (c) Mohammad HMofrad, 2017 
 # (e) mohammad.hmofrad@pitt.edu
 
-
-
 import numpy as np
 from utils import *
-
 
 def region_query(points, point_index, epsilon):
     [n, d] = np.shape(points)
@@ -17,9 +14,9 @@ def region_query(points, point_index, epsilon):
     neighbor_points = p[(distance <= epsilon)]
     return neighbor_points
 
-def expand_cluster(points, point_index, neighbor_points, clusters, cid, epsilon, min_points):	
+def expand_cluster(points, point_index, neighbor_points, clusters, cluster_id, epsilon, min_points):	
     [n, d] = np.shape(points)
-    clusters[point_index] = cid
+    clusters[point_index] = cluster_id
     k = 0
     while(True):
         point = neighbor_points[k]
@@ -32,7 +29,7 @@ def expand_cluster(points, point_index, neighbor_points, clusters, cid, epsilon,
         if(k == neighbor_points.size):
             break
         if(clusters[point] <= 0):
-            clusters[point] = cid
+            clusters[point] = cluster_id
 
 def k_distance(points, k, std_away):
     [n, d] = np.shape(points)
@@ -60,7 +57,18 @@ def k_distance(points, k, std_away):
     if(last == None):
         raise Exception('std is too far away from mean')	
 	
-	
+def clculate_centroids(points, clusters, k):
+    [n, d] = np.shape(points)
+    me = np.zeros((k, d))
+    for j in range(k):
+       a = np.arange(n)
+       idx = a[clusters == j]
+       l = len(idx)
+       if l:
+          me[j,:] = np.sum(points[idx,:], axis=0)/len(points[idx,:])
+       else:
+          me[j,:] = me[j,:] + (np.random.rand(d))	
+    return(me)
 	
 #    return(k_distance)		
 		
@@ -85,8 +93,8 @@ FILE = PERFIX + 'iris.data.txt'
 
 # Initliaze parameters
 [n, d] = np.shape(x)   # [#samples, #dimensions]
-clusters = -np.ones(n)        # Cluster membership 
-cid = 0               # Cluster id
+clusters = -np.ones(n)       # Cluster membership 
+cluster_id = 0               # Cluster id
 expected_num_clusters = len(np.unique(y))  #clusters
 visited = np.zeros(n)  # Visited
 
@@ -102,26 +110,7 @@ for std_away in range(5):
         continue
 epsilon = k_dist
 
-
 starting_point = np.random.randint(0,n, 1)[0]
-#sentinel = j
-
-#while(True):
-#for j in range(n):
-#jj = (j % n)	
-    
-    
-#print(j, jj)	
-    #print(j, jj, (n % j), (j % n), ((jjj - j) % n))
-#j = j + 1
-    #jj = jjj + (n % j)
-    #jjj = jjj + (j % n)
-	#(jjj - j) % n
-    #jjjj = jjjj + 1
-#if((j % n) == sentinel):
-#    break
-
-#print('++++++++++++++++++==')
 for i in range(starting_point, starting_point + n):
     j = i - starting_point
 #    print(j)
@@ -131,13 +120,10 @@ for i in range(starting_point, starting_point + n):
         visited[j] = 1
         neighbor_points = region_query(x, j, epsilon)
         if(neighbor_points.size < min_points):
-            clusters[j] = -cid
+            clusters[j] = -cluster_id
         else: # Expand the cluster
-            cid = cid + 1
-            expand_cluster(x, j, neighbor_points, clusters, cid, epsilon, min_points)
-    
-#exit(0)
-print(clusters)
+            cluster_id = cluster_id + 1
+            expand_cluster(x, j, neighbor_points, clusters, cluster_id, epsilon, min_points)
 
 for i in range(n):
     if clusters[i] < 0:
@@ -146,39 +132,10 @@ for i in range(n):
 clusters = clusters - 1
 print(clusters)
 print(y)
-estimated_num_clusters = len(np.unique(clusters))  # == cid
+estimated_num_clusters = len(np.unique(clusters))  # == cluster_id
 acc = accuracy_(clusters, y, expected_num_clusters, estimated_num_clusters)
-print(acc)
-
-#k = 3
-#dist = np.zeros(n)
-#for j in range(n):
-#    current_point = np.tile(x[j,:],(n,1))
-#    distance = np.linalg.norm(current_point - x, axis=1)
-#    distance = np.sort(distance)
-#    dist[j] = distance[k]
+me = clculate_centroids(x, clusters, k)
+sil = silhouette(x, clusters, me)
+print(acc, sil)
 
 
-#for j in range(n):
-#    print(kdist[j])
-#mean = np.mean(kdist)
-#std = np.std(kdist)
-#print(mean, '+/-', std)	
-
-'''
-anchor = mean + (std * std_away)
-print('anchor: ', anchor)
-last = None
-for kd in reversed(kdist):
-    #print(kd)
-    if kd > anchor:
-        last = kd
-        print(last)
-    if kd < anchor and last is not None:
-        print('kdist:', last)
-        break
-        #return last
-if(last == None):
-    raise Exception('sd too far away from mean')
-#print('kdist:', last)		
-'''  
