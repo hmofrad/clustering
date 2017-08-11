@@ -98,7 +98,7 @@ for std_away in range(5):
         break
     except:
         print('k-dist anchor is out of range, skipping')
-		k_dist = 1
+        k_dist = 1
         continue
 epsilon = k_dist
 
