@@ -69,7 +69,7 @@ def clculate_centroids(points, clusters, k):
        else:
           me[j,:] = me[j,:] + (np.random.rand(d))	
     return(me)
-	
+# LA action expansion	
 def expand_actions(actions):
     [num_actions, n] = np.shape(actions)
     print(num_actions, n)
@@ -77,20 +77,21 @@ def expand_actions(actions):
     actions = np.append(actions,np.zeros((1, n)), axis=0)
     return actions, num_actions
 
+# LA probability expansion
 def expand_probabilities(probabilities):
     [num_probs, n] = np.shape(probabilities)
     num_probs = num_probs + 1
     probabilities = np.append(probabilities,np.zeros((1, n)), axis=0)
-    probabilities = probabilities - (1/num_actions * probabilities)
-    probabilities[-1,:] = 1/num_actions
+    probabilities = probabilities - (1/num_probs * probabilities)
+    probabilities[-1,:] = 1/num_probs
     return probabilities, num_probs
 
+# LA admission expansion
 def expand_la(actions, probabilities):
     actions, num_actions = expand_actions(actions)
     probabilities, num_probs = expand_probabilities(probabilities)
-    return(actions, num_actions, probabilities)
+    return(actions, num_actions, probabilities, num_probs)
 
-	
 np.random.seed()
 # Read and store the input data
 # using the utils.py
@@ -116,8 +117,9 @@ clusters = -np.ones(n)       # Cluster membership
 cluster_id = 0               # Cluster id
 expected_num_clusters = len(np.unique(y))  #clusters
 visited = np.zeros(n)  # Visited
-n = 10
+
 num_actions = 1
+num_probs = 1
 actions = np.zeros((num_actions, n)) # LA action set
 probabilities = np.tile(1/num_actions, (num_actions, n)) # LA probability set
 alpha = 0.45
@@ -125,16 +127,10 @@ beta = 0.09
 
 print(actions)
 print(probabilities)
-#action[0,0] = 1
-#action = np.append(action,np.zeros((num_actions, n)))
-#print(action)
 
-actions = actionselection(actions, probabilities, num_actions, n)
+#actions = actionselection(actions, probabilities, num_actions, n)
 
-#actions, num_actions = expand_actions(actions)
-#print(actions)
-
-
+'''
 signal   = np.ones(n)
 for j in range(n):
     if(np.random.rand() > 0.5):
@@ -144,24 +140,21 @@ print(signal)
 probabilities = probabilityupdate(actions, probabilities, num_actions, n, signal, alpha, beta)
 print(probabilities)
 
-actions, num_actions, probabilities = expand_la(actions, probabilities)
+actions, num_actions, probabilities, num_probs = expand_la(actions, probabilities)
 
 #actions, num_actions = expand_actions(actions)
-print(actions)
+print('action1', actions)
 
 #probabilities = expand_probabilities(probabilities)
-print(probabilities)
+print('probs1', probabilities)
 print(num_actions)
 actions = actionselection(actions, probabilities, num_actions, n)
 print(actions)
 
-
 probabilities = probabilityupdate(actions, probabilities, num_actions, n, signal, alpha, beta)
 print(probabilities)
+'''
 
-
-
-exit(0)
 
 
 min_points = d
