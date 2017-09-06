@@ -2,15 +2,16 @@
 
 **Small-scale datasets**:
    * [Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
-   * [Balance Scale dataset](https://archive.ics.uci.edu/ml/datasets/Balance+Scale)
    * [Breast Cancer Wisconsin (Diagnostic) dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic))
    * [Connectionist Bench (Sonar, Mines vs. Rocks) dataset](https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+(Sonar,+Mines+vs.+Rocks))
-   * [Contraceptive Method Choice dataset](https://archive.ics.uci.edu/ml/datasets/Contraceptive+Method+Choice)
+   * [Contraceptive Method Choice (CMC) dataset](https://archive.ics.uci.edu/ml/datasets/Contraceptive+Method+Choice)
    * [Glass Identification dataset](https://archive.ics.uci.edu/ml/datasets/Glass+Identification)
    * [Hayes-Roth dataset](https://archive.ics.uci.edu/ml/datasets/Hayes-Roth)
+   * [Image Segmentation dataset](http://archive.ics.uci.edu/ml/datasets/image+segmentation)
    * [Ionosphere dataset](https://archive.ics.uci.edu/ml/datasets/Ionosphere)
    * [Iris dataset](http://archive.ics.uci.edu/ml/datasets/Iris)
    * [Pima Indians Diabetes dataset](https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes)
+   * [Soybean (Small) dataset](https://archive.ics.uci.edu/ml/datasets/soybean+(small))
    * [Wine dataset](https://archive.ics.uci.edu/ml/datasets/Wine)
 
 **Large-scale datasets**:
