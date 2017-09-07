@@ -9,20 +9,21 @@ np.random.seed()
 
 # Read and store the input data
 # using the utils.py
-PERFIX = 'dataset/'
-#FILE = PERFIX + 'balance-scale.data.txt'
-#FILE = PERFIX + 'breast-cancer-wisconsin.data.txt'
-#FILE = PERFIX + 'sonar.all-data.txt'
-#FILE = PERFIX + 'cmc.data.txt'
-#FILE = PERFIX + 'glass.data.txt'
-#FILE = PERFIX + 'hayes-roth.data.txt'
-#FILE = PERFIX + 'ionosphere.data.txt'
-FILE = PERFIX + 'iris.data.txt'
-#FILE = PERFIX + 'pima-indians-diabetes.data.txt'
-#FILE = PERFIX + 'wine.data.txt'
-#FILE = PERFIX + 'drift.data.txt'
-#FILE = PERFIX + 'har.data.txt'
-
+PREFIX = 'dataset/'
+#FILE = PREFIX + 'balance-scale.data.txt'
+#FILE = PREFIX + 'breast-cancer-wisconsin.data.txt'
+#FILE = PREFIX + 'sonar.all-data.txt'
+#FILE = PREFIX + 'cmc.data.txt'
+#FILE = PREFIX + 'glass.data.txt'
+#FILE = PREFIX + 'hayes-roth.data.txt'
+#FILE = PREFIX + 'ionosphere.data.txt'
+#FILE = PREFIX + 'iris.data.txt'
+#FILE = PREFIX + 'pima-indians-diabetes.data.txt'
+FILE = PREFIX + 'wine.data.txt'
+#FILE = PREFIX + 'drift.data.txt'
+#FILE = PREFIX + 'har.data.txt'
+#FILE = PREFIX + 'soybean-small.data.txt'
+#FILE = PREFIX + 'segmentation.data.txt'
 [x, y] = read(FILE)
 
 # Initliaze parameters
@@ -95,4 +96,11 @@ for i in range(imax):
 acc = accuracy(c, y, k)
 sil = silhouette(x, c, me)
 print(acc, sil)
-#print(k)
+
+# New experiment
+#print(c)
+#print(y)
+#uniq = np.unique(y)
+ 
+#for u in uniq:
+#    print('Cluster', u + 1, np.unique(c[y == u]) + 1)
