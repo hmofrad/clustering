@@ -22,7 +22,8 @@ FILE = PERFIX + 'iris.data.txt'
 #FILE = PERFIX + 'wine.data.txt'
 #FILE = PERFIX + 'drift.data.txt'
 #FILE = PERFIX + 'har.data.txt'
-
+#FILE = '/home/moh18/distrograph/legacy/2'
+#FILE ='/home/moh18/distrograph/legacy/output.txt'
 [x, y] = read(FILE)
 
 # Initliaze parameters
