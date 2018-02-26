@@ -1,5 +1,5 @@
 ## Centroid based clustering algorithms implementation
-   * **lac.py**: Learning Automata Clustering (LAC) algorithm.
+   * **lac.py**: Learning Automata Clustering (LAC) algorithm
    * **kmeans.py**: K-means clustering algorithm
    * **kmeans++.py**: K-means++ clustering algorithm
    * **kmedians.py**: K-medians clustering algorithm
@@ -8,7 +8,11 @@
 ## Density based clustering algorithm implementation
    * **dbscan.py**: DBSCAN clustering algorithm
 
+## 
+   * **spectral.py**: Spectral clustering 
+
 ## Requirements
- * Linux OS
- * Python 3.4
- * NumPy: sudo pip3.4 install numpy
+   * Linux OS
+   * Python 3.4
+   * NumPy: sudo pip3.4 install numpy
+
