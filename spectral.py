@@ -50,11 +50,18 @@ W = np.matmul(w, np.transpose(w))
 eigenvalues, eigenvectors = la.eigh(W)
 
 # Now use k-means to do the clustering
-# based on eigen vectors
-x=eigenvectors
+# based on the k lowest eigenvectors
+
+#print(eigenvalues)
+#for i in range(1, n):
+#    print(eigenvalues[i] - eigenvalues[i - 1])
+
+
+x = eigenvectors[:,1:k+1]
+
 
 # Initliaze parameters
-d = n
+d = k
 mi = np.min(x, axis=0) # Minimum
 ma = np.max(x, axis=0) # Maximum
 di = ma - mi           # Difference
