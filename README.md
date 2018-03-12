@@ -8,7 +8,7 @@
 ## Density based clustering algorithm implementation
    * **dbscan.py**: DBSCAN clustering algorithm
 
-## 
+## Spectral based clustering  
    * **spectral.py**: Spectral clustering 
 
 ## Requirements
