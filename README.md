@@ -17,5 +17,4 @@
    * NumPy: sudo pip3.4 install numpy
 
 ## References
-*	Mohammad Hasanzadeh Mofrad, and Alireza Rezvanian. “Learning Automata Clustering.” Journal of Computational Science, 24, 379-388, 2018.
-* https://www.sciencedirect.com/science/article/pii/S1877750317302247
+*	Mohammad Hasanzadeh Mofrad, and Alireza Rezvanian. “Learning Automata Clustering.” Journal of Computational Science, 24, 379-388, 2018. (https://www.sciencedirect.com/science/article/pii/S1877750317302247)
